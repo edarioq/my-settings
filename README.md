@@ -1,1 +1,4 @@
-# Just my settings to share between my machines
+# Settings to share between my machines
+
+* VS Code
+* Vim
