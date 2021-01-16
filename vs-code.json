@@ -21,6 +21,6 @@
   "window.zoomLevel": 0,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "js/ts.implicitProjectConfig.experimentalDecorators": true,
   "workbench.colorTheme": "Tokyo Night Storm"
 }
