@@ -1,11 +1,19 @@
 // Place your key bindings in this file to override the defaults
 [
   {
-      "key": "Shift+Ctrl+L",
+      "key": "shift+ctrl+;",
       "command": "editor.action.insertSnippet",
       "args": {
           "snippet": "console.debug(${TM_SELECTED_TEXT}$0);"
       },
       "when": "editorTextFocus"
+  },
+  {
+    "key": "win+alt+right",
+    "command": "workbench.action.nextEditor"
+  },
+  {
+    "key": "win+alt+left",
+    "command": "workbench.action.previousEditor"
   }
 ]

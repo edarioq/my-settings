@@ -1,7 +1,7 @@
 // Place your key bindings in this file to override the defaults
 [
   {
-      "key": "Shift+Cmd+L",
+      "key": "shift+cmd+;",
       "command": "editor.action.insertSnippet",
       "args": {
           "snippet": "console.debug(${TM_SELECTED_TEXT}$0);"
