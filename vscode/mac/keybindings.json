@@ -9,13 +9,21 @@
       "when": "editorTextFocus"
   },
   {
-      "key": "shift+cmd+i",
-      "command": "workbench.action.terminal.openNativeConsole",
-      "when": "!terminalFocus"
+      "key": "cmd+ctrl+up",
+      "command": "moveActiveEditor",
+      "args": {
+          "to": "left",
+          "by": "tab",
+          "value": 1
+      }
   },
   {
-      "key": "shift+cmd+c",
-      "command": "-workbench.action.terminal.openNativeConsole",
-      "when": "!terminalFocus"
+    "key": "cmd+ctrl+down",
+    "command": "moveActiveEditor",
+    "args": {
+        "to": "right",
+        "by": "tab",
+        "value": 1
+    }
   }
 ]

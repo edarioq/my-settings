@@ -15,5 +15,23 @@
   {
     "key": "win+alt+left",
     "command": "workbench.action.previousEditor"
+  },
+  {
+    "key": "ctrl+alt+shift+up",
+    "command": "moveActiveEditor",
+    "args": {
+        "to": "left",
+        "by": "tab",
+        "value": 1
+    }
+},
+{
+  "key": "ctrl+alt+shift+down",
+  "command": "moveActiveEditor",
+  "args": {
+      "to": "right",
+      "by": "tab",
+      "value": 1
   }
+}
 ]
