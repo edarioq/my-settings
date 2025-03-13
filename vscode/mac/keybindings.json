@@ -1,29 +1,83 @@
 // Place your key bindings in this file to override the defaults
 [
-  {
+    {
       "key": "shift+cmd+;",
       "command": "editor.action.insertSnippet",
       "args": {
-          "snippet": "console.debug(${TM_SELECTED_TEXT}$0);"
+        "snippet": "console.debug(${TM_SELECTED_TEXT}$0);"
       },
       "when": "editorTextFocus"
-  },
-  {
+    },
+    {
       "key": "cmd+ctrl+up",
       "command": "moveActiveEditor",
       "args": {
-          "to": "left",
-          "by": "tab",
-          "value": 1
-      }
-  },
-  {
-    "key": "cmd+ctrl+down",
-    "command": "moveActiveEditor",
-    "args": {
-        "to": "right",
+        "to": "left",
         "by": "tab",
-        "value": 1
-    }
-  }
-]
+      }
+    },
+    {
+      "key": "cmd+ctrl+down",
+      "command": "moveActiveEditor",
+      "when": "!terminalFocus",
+      "args": {
+        "to": "right",
+        "by": "tab"
+      }
+    },
+    {
+      "key": "cmd+home",
+      "command": "scrollPageUp",
+      "when": "textInputFocus"
+    },
+    {
+      "key": "cmd+end",
+      "command": "scrollPageDown",
+      "when": "textInputFocus"
+    },
+    {
+      "key": "ctrl+c",
+      "command": "cursorMove",
+      "args": {
+        "to": "viewPortCenter"
+      }
+    },
+    {
+      "key": "ctrl+z",
+      "command": "cursorMove",
+      "args": {
+        /* "to": "viewPortTop" */
+        "to": "up",
+        "by": "line",
+        "value": 10
+      }
+    },
+    {
+      "key": "ctrl+x",
+      "command": "cursorMove",
+      "args": {
+        /* "to": "viewPortBottom" */
+        "to": "down",
+        "by": "line",
+        "value": 10
+      }
+    },
+    /* {
+      "key": "ctrl+shift+up",
+      "command": "cursorMove",
+      "args": {
+          "to": "up",
+          "by": "line",
+          "value": 10
+      },
+    },
+    {
+      "key": "ctrl+shift+down",
+      "command": "cursorMove",
+      "args": {
+          "to": "down",
+          "by": "line",
+          "value": 10
+      },
+    } */
+  ]

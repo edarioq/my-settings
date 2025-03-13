@@ -1,26 +1,68 @@
 {
-  "workbench.iconTheme": "city-lights-icons-vsc",
-  "workbench.editor.tabSizing": "shrink",
-  "editor.fontSize": 16,
-  "editor.minimap.enabled": false,
-  "editor.renderWhitespace": "all",
-  "editor.fontFamily": "Fira Code, Hasklig",
-  "editor.fontWeight": "400",
-  "editor.fontLigatures": true,
-  "editor.renderIndentGuides": false,
-  "editor.tabSize": 2,
-  "explorer.confirmDragAndDrop": false,
-  "breadcrumbs.enabled": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "never"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "diffEditor.ignoreTrimWhitespace": false,
-  "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never",
+    "source.sortImports": "explicit"
+  },
+  "editor.fontFamily": "MonoLisa",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 12,
+  "editor.fontVariations": true,
+  "editor.fontWeight": "normal",
+  "editor.formatOnSave": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.letterSpacing": 0,
+  "editor.lineHeight": 2,
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "editor.renderWhitespace": "none",
+  "editor.snippetSuggestions": "top",
   "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
   "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
-  "typescript.format.insertSpaceBeforeFunctionParenthesis": false,
-  "workbench.startupEditor": "newUntitledFile",
-  "window.zoomLevel": 0,
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "js/ts.implicitProjectConfig.experimentalDecorators": true,
-  "workbench.colorTheme": "Tokyo Night Storm"
+  "security.workspace.trust.untrustedFiles": "open",
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": false,
+  "typescript.preferences.jsxAttributeCompletionStyle": "braces",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vs-kubernetes": {
+    "vscode-kubernetes.minikube-path-mac": "/Users/edarioq/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
+  },
+  "window.menuBarVisibility": "compact",
+  "window.title": "${rootName}${separator}${dirty}${activeEditorLong}",
+  "workbench.colorTheme": "Dracula Theme",
+  "workbench.editor.closeEmptyGroups": true,
+  "workbench.editor.pinnedTabSizing": "compact",
+  "workbench.editor.showTabs": "multiple",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.iconTheme": "chalice-icon-theme",
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "none"
 }
