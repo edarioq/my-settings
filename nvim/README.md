@@ -78,7 +78,10 @@ completion menu stay readable.
 - `lua/plugins/neo-tree.lua` shows dotfiles and gitignored files in the tree
 - `lazyvim.json` holds the language extras: Docker, Go, JSON, Markdown, SQL,
   Tailwind, TypeScript (vtsls)
-- `lua/config/` is unchanged from the LazyVim starter
+- `lua/config/keymaps.lua` maps `Ctrl+j` / `Ctrl+k` to jump 10 lines down / up
+  in normal mode. This replaces LazyVim's default of moving between windows
+  with those keys (`Ctrl+w j` / `Ctrl+w k` still do that)
+- The rest of `lua/config/` is unchanged from the LazyVim starter
 
 ## WSL notes
 
