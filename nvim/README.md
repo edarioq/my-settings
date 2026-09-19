@@ -76,6 +76,8 @@ completion menu stay readable.
 ## What else is in here
 
 - `lua/plugins/neo-tree.lua` shows dotfiles and gitignored files in the tree
+- `lua/plugins/remote-ssh.lua` adds [remote-nvim](https://github.com/amitds1997/remote-nvim.nvim)
+  for editing on remote machines over SSH (`:RemoteStart`)
 - `lazyvim.json` holds the language extras: Docker, Go, JSON, Markdown, SQL,
   Tailwind, TypeScript (vtsls)
 - `lua/config/keymaps.lua` maps `Ctrl+j` / `Ctrl+k` to jump 10 lines down / up
