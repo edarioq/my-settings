@@ -1,16 +1,17 @@
 # Neovim (LazyVim) with a transparent background
 
-Copy of `~/.config/nvim`. Drop it in place on any machine, including WSL.
+My `~/.config/nvim`. Works on any machine, including WSL.
 
 ## Install
 
-```bash
-# back up anything already there
-mv ~/.config/nvim ~/.config/nvim.bak 2>/dev/null
+Run `install.sh` from the repo root. It links `~/.config/nvim` to this folder.
+lazy.nvim installs everything on first start.
 
-mkdir -p ~/.config/nvim
-cp -r nvim/. ~/.config/nvim/
-nvim   # lazy.nvim installs everything on first start
+To install only this config by hand:
+
+```bash
+mv ~/.config/nvim ~/.config/nvim.bak 2>/dev/null
+ln -s "$PWD/nvim" ~/.config/nvim
 ```
 
 First start also recompiles the catppuccin cache, so it takes an extra moment.

@@ -1,0 +1,17 @@
+tap "felixkratz/formulae"
+tap "jandedobbeleer/oh-my-posh"
+
+brew "neovim"
+brew "tmux"
+brew "neofetch"
+brew "ripgrep"
+brew "fd"
+brew "lazygit"
+brew "gh"
+brew "go"
+brew "rbenv"
+brew "felixkratz/formulae/borders"
+brew "jandedobbeleer/oh-my-posh/oh-my-posh"
+
+cask "ghostty"
+cask "font-caskaydia-cove-nerd-font"

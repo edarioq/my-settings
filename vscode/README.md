@@ -16,6 +16,8 @@ On Windows with WSL, VS Code itself runs on the Windows side, so these go in
 `%APPDATA%\Code\User\`, not anywhere inside WSL. Only the language servers and
 tools run in WSL, through the Remote-WSL extension.
 
+On macOS and Linux, `install.sh` in the repo root links these for you. By hand:
+
 ```bash
 # macOS
 cp vscode/settings.json      ~/Library/Application\ Support/Code/User/
