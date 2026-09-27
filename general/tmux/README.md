@@ -64,6 +64,25 @@ All after the prefix, except the last row.
 | `r`                       | Reload the config                              |
 | `Ctrl+l` (no prefix)      | Clear the screen and the history               |
 
+## Copy mode
+
+Enter it with `prefix [` or `prefix Enter`. It uses Vim keys.
+
+| Keys                      | Action                                         |
+| ------------------------- | ---------------------------------------------- |
+| `h` `j` `k` `l`, arrows   | Move                                           |
+| `w` / `b`                 | Next / previous word                           |
+| `0` / `$`                 | Start / end of the line                        |
+| `g` / `G`                 | Top / bottom of the history                    |
+| `/` / `?`                 | Search down / up                               |
+| `Space`                   | Start selecting. Press again to copy and leave |
+| `v` then `y`              | The same, the Vim way                          |
+| `V`                       | Select the whole line                          |
+| `Ctrl+v`                  | Switch to a block selection                    |
+| `q` or `Escape`           | Leave without copying                          |
+
+Copies go to the system clipboard, so the normal paste shortcut works.
+
 ## What is gone compared to Oh my tmux
 
 - User and host name in the bar are always the local ones. Oh my tmux showed

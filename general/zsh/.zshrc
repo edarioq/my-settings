@@ -11,7 +11,11 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-# Emacs keys even if EDITOR is ever set to vim, which would switch zsh to vi mode
+# Neovim where it is installed, Vim elsewhere
+if command -v nvim >/dev/null; then export EDITOR=nvim; else export EDITOR=vim; fi
+export VISUAL="$EDITOR"
+
+# zsh switches the prompt to vi mode when EDITOR is vim; keep the normal keys
 bindkey -e
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
