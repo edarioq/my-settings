@@ -96,12 +96,10 @@ fi
 case "$OS" in
   Darwin)
     link macos/borders/bordersrc        "$HOME/.config/borders/bordersrc"
-    link general/ghostty/config.ghostty "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
     VSCODE="$HOME/Library/Application Support/Code/User"
     KEYS=macos
     ;;
   *)
-    link general/ghostty/config.ghostty "$HOME/.config/ghostty/config"
     VSCODE="$HOME/.config/Code/User"
     # Linux uses the same ctrl/alt keys as Windows
     KEYS=windows

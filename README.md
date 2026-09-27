@@ -45,8 +45,7 @@ windows/   Windows only
 | `nvim/`     | `~/.config/nvim`                         | [LazyVim, Gruvbox, transparent background](general/nvim/README.md) |
 | `vim/`      | `~/.vimrc`                               | Plain Vim with the Dracula theme                  |
 | `git/`      | `~/.config/git/ignore`, included from `~/.gitconfig` | Name, email, global ignore            |
-| `kitty/`    | `~/.config/kitty/`                       | Main terminal. Opacity, blur, Gruvbox Dark Hard   |
-| `ghostty/`  | Ghostty config folder                    | Opacity, blur, CaskaydiaCove Nerd Font            |
+| `kitty/`    | `~/.config/kitty/`                       | Opacity, blur, CaskaydiaCove Nerd Font, Gruvbox Dark Hard |
 | `claude/`   | `~/.claude/`                             | [Global CLAUDE.md, settings, project standards](general/claude/README.md) |
 | `vscode/`   | VS Code user folder                      | Shared `settings.json`, [details and Windows steps](general/vscode/README.md) |
 
