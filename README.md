@@ -41,7 +41,7 @@ windows/   Windows only
 | ----------- | ---------------------------------------- | ------------------------------------------------- |
 | `zsh/`      | `~/.zshrc`, `~/.zprofile`                | History, completion, key bindings, `gg-review`    |
 | `starship/` | `~/.config/starship.toml`                | Prompt, Gruvbox colors                            |
-| `tmux/`     | `~/.tmux.conf.local`                     | Settings for [Oh my tmux](https://github.com/gpakosz/.tmux), which the script clones to `~/.tmux` |
+| `tmux/`     | `~/.config/tmux`                         | [Plain tmux with the Oh my tmux key bindings and status bar](general/tmux/README.md) |
 | `nvim/`     | `~/.config/nvim`                         | [LazyVim, Gruvbox, transparent background](general/nvim/README.md) |
 | `vim/`      | `~/.vimrc`                               | Plain Vim with the Dracula theme                  |
 | `git/`      | `~/.config/git/ignore`, included from `~/.gitconfig` | Name, email, global ignore            |

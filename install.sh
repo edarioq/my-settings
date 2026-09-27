@@ -42,16 +42,18 @@ elif command -v apt-get >/dev/null; then
 fi
 
 clone https://github.com/dracula/vim.git "$HOME/.vim/pack/themes/start/dracula"
-clone https://github.com/gpakosz/.tmux.git "$HOME/.tmux"
 
 link general/zsh/.zshrc             "$HOME/.zshrc"
 link general/zsh/.zprofile          "$HOME/.zprofile"
-link general/tmux/.tmux.conf.local  "$HOME/.tmux.conf.local"
-if [ "$(readlink "$HOME/.tmux.conf" 2>/dev/null)" != "$HOME/.tmux/.tmux.conf" ]; then
-  [ -e "$HOME/.tmux.conf" ] && mv "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak.$STAMP"
-  ln -s "$HOME/.tmux/.tmux.conf" "$HOME/.tmux.conf"
-  echo "linked    $HOME/.tmux.conf"
-fi
+# tmux reads ~/.tmux.conf as well, so the old Oh my tmux files have to go
+for old in "$HOME/.tmux.conf" "$HOME/.tmux.conf.local"; do
+  if [ -e "$old" ] || [ -L "$old" ]; then
+    mv "$old" "$old.bak.$STAMP"
+    echo "backed up $old"
+  fi
+done
+# The whole folder, because tmux.conf looks for status.sh next to itself
+link general/tmux                   "$HOME/.config/tmux"
 link general/vim/.vimrc             "$HOME/.vimrc"
 link general/nvim                   "$HOME/.config/nvim"
 link general/git/ignore             "$HOME/.config/git/ignore"
