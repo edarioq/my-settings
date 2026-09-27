@@ -1,39 +1,32 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 1000,
-    opts = {
-      transparent_background = true, -- Core transparency setting
-      -- `styles` in catppuccin means syntax styles; sidebars/floats are
-      -- tokyonight options and were being ignored.
-      float = { transparent = true, solid = false },
-      integrations = {
-        telescope = { enabled = true, style = "transparent" },
-        neotree = true,
-        which_key = true,
-      },
-      -- transparent_background leaves the cursor row filled so it stays
-      -- visible. A terminal cannot blend a named background colour, so mark
-      -- the row with an underline instead of a fill.
-      custom_highlights = function(colors)
-        local cursor_row = { bg = colors.none, underline = true, sp = colors.surface1 }
-        return {
-          CursorLine = cursor_row,
-          NeoTreeCursorLine = cursor_row,
-          CursorColumn = { bg = colors.none },
-        }
-      end,
-    },
+    opts = function()
+      local palette = require("gruvbox").palette
+      return {
+        contrast = "hard",
+        transparent_mode = true,
+        -- transparent_mode leaves the cursor row filled so it stays visible.
+        -- A terminal cannot blend a named background colour, so mark the row
+        -- with an underline instead of a fill.
+        overrides = {
+          CursorLine = { bg = "NONE", underline = true, sp = palette.dark2 },
+          CursorColumn = { bg = "NONE" },
+          -- gruvbox points picker selections at CursorLine, which the
+          -- underline above makes too faint; Visual is what snacks uses
+          -- when no theme overrides it.
+          SnacksPickerListCursorLine = { link = "Visual" },
+          TelescopeSelection = { link = "Visual" },
+        },
+      }
+    end,
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      -- Neovim 0.12 ships its own "catppuccin" scheme, which shadows the
-      -- plugin and silently ignores every option above. Flavour-suffixed
-      -- names only exist in the plugin.
-      colorscheme = "catppuccin-mocha",
+      colorscheme = "gruvbox",
     },
   },
 }

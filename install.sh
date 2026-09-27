@@ -30,7 +30,7 @@ if [ "$OS" = "Darwin" ] && command -v brew >/dev/null; then
 elif command -v apt-get >/dev/null; then
   sudo apt-get update
   xargs sudo apt-get install -y < "$REPO/ubuntu/packages.txt"
-  command -v oh-my-posh >/dev/null || curl -s https://ohmyposh.dev/install.sh | bash -s
+  command -v starship >/dev/null || curl -sS https://starship.rs/install.sh | sh -s -- -y
   if ! fc-list | grep -qi "CaskaydiaCove"; then
     echo "note: install the CaskaydiaCove Nerd Font from https://www.nerdfonts.com/font-downloads"
   fi
@@ -38,9 +38,9 @@ elif command -v apt-get >/dev/null; then
   if [ "$(printf '%s\n' "$nvim_version" 0.9 | sort -V | head -1)" != "0.9" ]; then
     echo "note: neovim $nvim_version is too old for LazyVim (needs 0.9+), install it from https://github.com/neovim/neovim/releases"
   fi
+  command -v biome >/dev/null || echo "note: install Biome from https://biomejs.dev/guides/manual-installation, the Neovim config expects it on PATH"
 fi
 
-clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
 clone https://github.com/dracula/vim.git "$HOME/.vim/pack/themes/start/dracula"
 clone https://github.com/gpakosz/.tmux.git "$HOME/.tmux"
 
@@ -55,6 +55,10 @@ fi
 link general/vim/.vimrc             "$HOME/.vimrc"
 link general/nvim                   "$HOME/.config/nvim"
 link general/git/ignore             "$HOME/.config/git/ignore"
+link general/starship/starship.toml "$HOME/.config/starship.toml"
+# Linked one by one because kitty keeps its own backups in that folder
+link general/kitty/kitty.conf         "$HOME/.config/kitty/kitty.conf"
+link general/kitty/current-theme.conf "$HOME/.config/kitty/current-theme.conf"
 
 link general/claude/CLAUDE.md       "$HOME/.claude/CLAUDE.md"
 

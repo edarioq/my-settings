@@ -14,8 +14,6 @@ mv ~/.config/nvim ~/.config/nvim.bak 2>/dev/null
 ln -s "$PWD/general/nvim" ~/.config/nvim
 ```
 
-First start also recompiles the catppuccin cache, so it takes an extra moment.
-
 To pull the latest plugin versions instead of the ones pinned in
 `lazy-lock.json`, delete that file before starting, or run `:Lazy update`.
 
@@ -40,47 +38,43 @@ defaults, unless you want it everywhere.
 
 ### 2. Neovim
 
-`lua/plugins/theme.lua` holds all of it. Three things in there are easy to get
-wrong, so they are worth knowing:
+`lua/plugins/theme.lua` holds all of it. The theme is
+[gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) with hard contrast.
+Two things in there are worth knowing:
 
-**Use a flavour-suffixed colorscheme name.** Neovim 0.12 ships its own
-`catppuccin` scheme in `$VIMRUNTIME/colors/`. Asking for the bare name loads
-that one, the plugin never loads, and every option below is silently ignored.
-
-```lua
-colorscheme = "catppuccin"        -- loads Neovim's built-in scheme
-colorscheme = "catppuccin-mocha"  -- loads the plugin
-```
-
-**Floats have their own option.** `styles.sidebars` and `styles.floats` belong
-to tokyonight. In catppuccin, `styles` means syntax styles.
+**Clear the cursor row yourself.** `transparent_mode` deliberately keeps
+`CursorLine` filled so the cursor stays findable. A terminal paints any named
+background colour as solid, so there is no half-transparent option. Clear the
+fill and mark the row some other way instead:
 
 ```lua
-styles = { floats = "transparent" }        -- ignored
-float = { transparent = true }             -- works
-```
-
-**Clear the cursor row yourself.** `transparent_background` deliberately keeps
-`CursorLine` filled so the cursor stays findable, and neo-tree's selected file
-inherits from it. A terminal paints any named background colour as solid, so
-there is no half-transparent option. Clear the fill and mark the row some other
-way instead:
-
-```lua
-local cursor_row = { bg = colors.none, underline = true, sp = colors.surface1 }
+CursorLine = { bg = "NONE", underline = true, sp = palette.dark2 }
 ```
 
 Drop `underline` and `sp` if you would rather the row carry no mark at all.
-`Visual` and `Pmenu` keep their backgrounds on purpose, so selections and the
-completion menu stay readable.
+
+**Give pickers their own selection colour.** gruvbox points the selected row in
+pickers at `CursorLine`, and the underline above is too faint there. Link it to
+`Visual` instead:
+
+```lua
+SnacksPickerListCursorLine = { link = "Visual" }
+TelescopeSelection = { link = "Visual" }
+```
 
 ## What else is in here
 
+- `lua/plugins/diagnostics.lua` shows the cursor line's errors below the line,
+  wrapped to the window. Neovim's own version cuts off long messages near the
+  right edge
+- `lua/plugins/biome.lua` checks every supported file with
+  [Biome](https://biomejs.dev), but only formats in projects that use Biome.
+  It expects `biome` on `PATH` and does not install it through Mason
 - `lua/plugins/neo-tree.lua` shows dotfiles and gitignored files in the tree
 - `lua/plugins/remote-ssh.lua` adds [remote-nvim](https://github.com/amitds1997/remote-nvim.nvim)
   for editing on remote machines over SSH (`:RemoteStart`)
 - `lazyvim.json` holds the language extras: Docker, Go, JSON, Markdown, SQL,
-  Tailwind, TypeScript (vtsls)
+  Tailwind, TypeScript (vtsls, Biome)
 - `lua/config/keymaps.lua` maps `Ctrl+j` / `Ctrl+k` to jump 10 lines down / up
   in normal mode. This replaces LazyVim's default of moving between windows
   with those keys (`Ctrl+w j` / `Ctrl+w k` still do that)

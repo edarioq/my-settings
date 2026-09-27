@@ -15,8 +15,9 @@ On macOS it first installs the tools in `macos/Brewfile` (needs
 [Homebrew](https://brew.sh)). On Ubuntu and other apt systems it installs the
 ones in `ubuntu/packages.txt` and makes zsh the login shell. Ubuntu 22.04 ships a Neovim too old
 for LazyVim; the script says so and you install a newer one from the
-[releases page](https://github.com/neovim/neovim/releases). The Nerd Font is a
-manual step on Linux. The shell config skips any tool that is missing.
+[releases page](https://github.com/neovim/neovim/releases). The Nerd Font and
+[Biome](https://biomejs.dev/guides/manual-installation) are manual steps on
+Linux. The shell config skips any tool that is missing.
 
 Secrets stay out of this repo. Put them in `~/.zshrc.local`, which `.zshrc`
 loads when it exists:
@@ -38,11 +39,13 @@ windows/   Windows only
 
 | Folder      | Goes to                                  | Notes                                             |
 | ----------- | ---------------------------------------- | ------------------------------------------------- |
-| `zsh/`      | `~/.zshrc`, `~/.zprofile`                | Oh My Zsh, oh-my-posh prompt, `gg-review`         |
+| `zsh/`      | `~/.zshrc`, `~/.zprofile`                | History, completion, key bindings, `gg-review`    |
+| `starship/` | `~/.config/starship.toml`                | Prompt, Gruvbox colors                            |
 | `tmux/`     | `~/.tmux.conf.local`                     | Settings for [Oh my tmux](https://github.com/gpakosz/.tmux), which the script clones to `~/.tmux` |
-| `nvim/`     | `~/.config/nvim`                         | [LazyVim, transparent background](general/nvim/README.md) |
+| `nvim/`     | `~/.config/nvim`                         | [LazyVim, Gruvbox, transparent background](general/nvim/README.md) |
 | `vim/`      | `~/.vimrc`                               | Plain Vim with the Dracula theme                  |
 | `git/`      | `~/.config/git/ignore`, included from `~/.gitconfig` | Name, email, global ignore            |
+| `kitty/`    | `~/.config/kitty/`                       | Main terminal. Opacity, blur, Gruvbox Dark Hard   |
 | `ghostty/`  | Ghostty config folder                    | Opacity, blur, CaskaydiaCove Nerd Font            |
 | `claude/`   | `~/.claude/`                             | [Global CLAUDE.md, settings, project standards](general/claude/README.md) |
 | `vscode/`   | VS Code user folder                      | Shared `settings.json`, [details and Windows steps](general/vscode/README.md) |

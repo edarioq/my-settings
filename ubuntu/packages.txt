@@ -1,6 +1,9 @@
 zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
 tmux
 neovim
+kitty
 git
 curl
 build-essential

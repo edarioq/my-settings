@@ -36,5 +36,5 @@ copy windows\vscode\keybindings.json "$env:APPDATA\Code\User\keybindings.json"
 
 - `biomejs.biome` formats JS, JSON, JSONC, TSX, Docker Compose and GitHub
   Actions workflows
-- Catppuccin Mocha theme and its icon theme, matching the Neovim config
+- Catppuccin Mocha theme and its icon theme
 - `streetsidesoftware.code-spell-checker` reads the `cSpell.words` list
