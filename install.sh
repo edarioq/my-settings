@@ -1,11 +1,35 @@
 #!/usr/bin/env bash
 # Links every config in this repo into place. Safe to run again.
-# Anything already there is moved to <name>.bak.<timestamp> first.
+# Anything already there is moved to <name>.bak.<timestamp> first, unless it
+# is a link or an exact copy of the repo file.
 set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 STAMP="$(date +%Y%m%d%H%M%S)"
 OS="$(uname -s)"
+
+same() {
+  if [ -d "$1" ]; then
+    diff -rq "$1" "$2" >/dev/null 2>&1
+  else
+    cmp -s "$1" "$2"
+  fi
+}
+
+# Links and exact copies of the repo file hold nothing worth keeping
+retire() {
+  local path="$1" copy="${2:-}"
+  if [ -L "$path" ]; then
+    rm "$path"
+  elif [ ! -e "$path" ]; then
+    return
+  elif [ -n "$copy" ] && same "$path" "$copy"; then
+    rm -r "$path"
+  else
+    mv "$path" "$path.bak.$STAMP"
+    echo "backed up $path"
+  fi
+}
 
 link() {
   local src="$REPO/$1" dest="$2"
@@ -13,10 +37,7 @@ link() {
     return
   fi
   mkdir -p "$(dirname "$dest")"
-  if [ -e "$dest" ] || [ -L "$dest" ]; then
-    mv "$dest" "$dest.bak.$STAMP"
-    echo "backed up $dest"
-  fi
+  retire "$dest" "$src"
   ln -s "$src" "$dest"
   echo "linked    $dest"
 }
@@ -26,7 +47,7 @@ clone() {
 }
 
 if [ "$OS" = "Darwin" ] && command -v brew >/dev/null; then
-  brew bundle --file "$REPO/macos/Brewfile"
+  brew bundle --no-upgrade --file "$REPO/macos/Brewfile" || echo "note: Homebrew could not install everything, see above"
 elif command -v apt-get >/dev/null; then
   sudo apt-get update
   xargs sudo apt-get install -y < "$REPO/ubuntu/packages.txt"
@@ -46,12 +67,8 @@ clone https://github.com/dracula/vim.git "$HOME/.vim/pack/themes/start/dracula"
 link general/zsh/.zshrc             "$HOME/.zshrc"
 link general/zsh/.zprofile          "$HOME/.zprofile"
 # tmux reads ~/.tmux.conf as well, so the old Oh my tmux files have to go
-for old in "$HOME/.tmux.conf" "$HOME/.tmux.conf.local"; do
-  if [ -e "$old" ] || [ -L "$old" ]; then
-    mv "$old" "$old.bak.$STAMP"
-    echo "backed up $old"
-  fi
-done
+retire "$HOME/.tmux.conf"
+retire "$HOME/.tmux.conf.local"
 # The whole folder, because tmux.conf looks for status.sh next to itself
 link general/tmux                   "$HOME/.config/tmux"
 link general/vim/.vimrc             "$HOME/.vimrc"
