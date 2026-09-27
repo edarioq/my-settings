@@ -26,10 +26,10 @@ clone() {
 }
 
 if [ "$OS" = "Darwin" ] && command -v brew >/dev/null; then
-  brew bundle --file "$REPO/Brewfile"
+  brew bundle --file "$REPO/macos/Brewfile"
 elif command -v apt-get >/dev/null; then
   sudo apt-get update
-  sudo apt-get install -y zsh tmux neovim git curl build-essential ripgrep fd-find neofetch fontconfig
+  xargs sudo apt-get install -y < "$REPO/ubuntu/packages.txt"
   command -v oh-my-posh >/dev/null || curl -s https://ohmyposh.dev/install.sh | bash -s
   if ! fc-list | grep -qi "CaskaydiaCove"; then
     echo "note: install the CaskaydiaCove Nerd Font from https://www.nerdfonts.com/font-downloads"
@@ -44,47 +44,48 @@ clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
 clone https://github.com/dracula/vim.git "$HOME/.vim/pack/themes/start/dracula"
 clone https://github.com/gpakosz/.tmux.git "$HOME/.tmux"
 
-link zsh/.zshrc           "$HOME/.zshrc"
-link zsh/.zprofile        "$HOME/.zprofile"
-link tmux/.tmux.conf.local "$HOME/.tmux.conf.local"
+link general/zsh/.zshrc             "$HOME/.zshrc"
+link general/zsh/.zprofile          "$HOME/.zprofile"
+link general/tmux/.tmux.conf.local  "$HOME/.tmux.conf.local"
 if [ "$(readlink "$HOME/.tmux.conf" 2>/dev/null)" != "$HOME/.tmux/.tmux.conf" ]; then
   [ -e "$HOME/.tmux.conf" ] && mv "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak.$STAMP"
   ln -s "$HOME/.tmux/.tmux.conf" "$HOME/.tmux.conf"
   echo "linked    $HOME/.tmux.conf"
 fi
-link vim/.vimrc           "$HOME/.vimrc"
-link nvim                 "$HOME/.config/nvim"
-link git/ignore           "$HOME/.config/git/ignore"
+link general/vim/.vimrc             "$HOME/.vimrc"
+link general/nvim                   "$HOME/.config/nvim"
+link general/git/ignore             "$HOME/.config/git/ignore"
 
-link claude/CLAUDE.md     "$HOME/.claude/CLAUDE.md"
+link general/claude/CLAUDE.md       "$HOME/.claude/CLAUDE.md"
 
 # settings.json stays a real file because Claude Code rewrites it at runtime
 if [ ! -e "$HOME/.claude/settings.json" ]; then
   mkdir -p "$HOME/.claude"
-  cp "$REPO/claude/settings.json" "$HOME/.claude/settings.json"
+  cp "$REPO/general/claude/settings.json" "$HOME/.claude/settings.json"
   echo "copied    ~/.claude/settings.json"
 fi
 
 # ~/.gitconfig stays a real file because tools write machine-specific values into it
-if ! git config --global --get-all include.path | grep -qx "$REPO/git/gitconfig"; then
-  git config --global --add include.path "$REPO/git/gitconfig"
+if ! git config --global --get-all include.path | grep -qx "$REPO/general/git/gitconfig"; then
+  git config --global --add include.path "$REPO/general/git/gitconfig"
 fi
 
 case "$OS" in
   Darwin)
-    link borders/bordersrc      "$HOME/.config/borders/bordersrc"
-    link ghostty/config.ghostty "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+    link macos/borders/bordersrc        "$HOME/.config/borders/bordersrc"
+    link general/ghostty/config.ghostty "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
     VSCODE="$HOME/Library/Application Support/Code/User"
-    KEYS=mac
+    KEYS=macos
     ;;
   *)
-    link ghostty/config.ghostty "$HOME/.config/ghostty/config"
+    link general/ghostty/config.ghostty "$HOME/.config/ghostty/config"
     VSCODE="$HOME/.config/Code/User"
+    # Linux uses the same ctrl/alt keys as Windows
     KEYS=windows
     ;;
 esac
-link vscode/settings.json        "$VSCODE/settings.json"
-link "vscode/$KEYS/keybindings.json" "$VSCODE/keybindings.json"
+link general/vscode/settings.json    "$VSCODE/settings.json"
+link "$KEYS/vscode/keybindings.json" "$VSCODE/keybindings.json"
 
 if [ "$OS" != "Darwin" ] && command -v zsh >/dev/null && [ "$(basename "$SHELL")" != "zsh" ]; then
   chsh -s "$(command -v zsh)" && echo "default shell set to zsh, log out and back in"

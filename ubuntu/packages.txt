@@ -1,0 +1,10 @@
+zsh
+tmux
+neovim
+git
+curl
+build-essential
+ripgrep
+fd-find
+neofetch
+fontconfig

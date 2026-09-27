@@ -7,11 +7,11 @@ My `~/.config/nvim`. Works on any machine, including WSL.
 Run `install.sh` from the repo root. It links `~/.config/nvim` to this folder.
 lazy.nvim installs everything on first start.
 
-To install only this config by hand:
+To install only this config by hand, from the repo root:
 
 ```bash
 mv ~/.config/nvim ~/.config/nvim.bak 2>/dev/null
-ln -s "$PWD/nvim" ~/.config/nvim
+ln -s "$PWD/general/nvim" ~/.config/nvim
 ```
 
 First start also recompiles the catppuccin cache, so it takes an extra moment.
