@@ -78,6 +78,7 @@ link general/starship/starship.toml "$HOME/.config/starship.toml"
 # Linked one by one because kitty keeps its own backups in that folder
 link general/kitty/kitty.conf         "$HOME/.config/kitty/kitty.conf"
 link general/kitty/current-theme.conf "$HOME/.config/kitty/current-theme.conf"
+link general/alacritty/alacritty.toml "$HOME/.config/alacritty/alacritty.toml"
 
 link general/claude/CLAUDE.md       "$HOME/.claude/CLAUDE.md"
 

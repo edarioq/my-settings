@@ -46,6 +46,7 @@ windows/   Windows only
 | `vim/`      | `~/.vimrc`                               | Plain Vim with the Dracula theme                  |
 | `git/`      | `~/.config/git/ignore`, included from `~/.gitconfig` | Name, email, global ignore            |
 | `kitty/`    | `~/.config/kitty/`                       | Opacity, blur, CaskaydiaCove Nerd Font, Gruvbox Dark Hard |
+| `alacritty/` | `~/.config/alacritty/alacritty.toml`, `%APPDATA%\alacritty\` | The kitty settings, for Alacritty |
 | `claude/`   | `~/.claude/`                             | [Global CLAUDE.md, settings, project standards](general/claude/README.md) |
 | `vscode/`   | VS Code user folder                      | Shared `settings.json`, [details and Windows steps](general/vscode/README.md) |
 
@@ -72,4 +73,10 @@ Ubuntu uses the VS Code keybindings in `windows/`, because the keys are the same
 | `vscode/`   | `%APPDATA%\Code\User\`                   | `keybindings.json` with ctrl and win keys         |
 
 Windows itself is not covered by `install.sh`. Follow the
-[VS Code README](general/vscode/README.md) there.
+[VS Code README](general/vscode/README.md) there, and copy the Alacritty
+config from the repo root:
+
+```powershell
+mkdir "$env:APPDATA\alacritty" -Force
+copy general\alacritty\alacritty.toml "$env:APPDATA\alacritty\"
+```
