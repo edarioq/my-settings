@@ -1,0 +1,4 @@
+{
+  /* macOS has no action for Ctrl+/, so it beeps in apps like Alacritty that still use the key */
+  "^/" = "noop:";
+}

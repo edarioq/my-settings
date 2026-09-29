@@ -97,6 +97,7 @@ fi
 case "$OS" in
   Darwin)
     link macos/borders/bordersrc        "$HOME/.config/borders/bordersrc"
+    link macos/keybindings/DefaultKeyBinding.dict "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
     VSCODE="$HOME/Library/Application Support/Code/User"
     KEYS=macos
     ;;

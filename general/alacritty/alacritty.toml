@@ -18,6 +18,13 @@ opacity = 0.8
 blur = true
 option_as_alt = "Both"
 
+# Alacritty does not pass Ctrl+/ through, so LazyVim's terminal toggle
+# never fires. \u001f is what other terminals send for it.
+[keyboard]
+bindings = [
+  { key = "/", mods = "Control", chars = "\u001f" },
+]
+
 # Gruvbox Dark Hard, the same colors as kitty/current-theme.conf
 [colors.primary]
 background = "#1d2021"

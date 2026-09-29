@@ -56,6 +56,7 @@ windows/   Windows only
 | ----------- | ---------------------------------------- | ------------------------------------------------- |
 | `Brewfile`  | nowhere                                  | Tools that `install.sh` installs with Homebrew    |
 | `borders/`  | `~/.config/borders/bordersrc`            | Window border colors                              |
+| `keybindings/` | `~/Library/KeyBindings/DefaultKeyBinding.dict` | Stops the alert sound on Ctrl+/ in Alacritty. Apps read it when they start |
 | `vscode/`   | VS Code user folder                      | `keybindings.json` with cmd keys                  |
 
 ### `ubuntu/`
