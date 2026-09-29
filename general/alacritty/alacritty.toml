@@ -1,6 +1,12 @@
 [font]
 normal.family = "CaskaydiaCove Nerd Font"
-size = 13.0
+# Without these, Alacritty takes whichever face of the family comes first,
+# which differs between machines
+normal.style = "Light"
+bold.style = "Bold"
+italic.style = "Light Italic"
+bold_italic.style = "Bold Italic"
+size = 12.0
 # Same as kitty's cell_height 120%. Alacritty counts in screen pixels, and a
 # Retina screen has twice as many, so a normal screen needs half of these.
 offset.y = 6
