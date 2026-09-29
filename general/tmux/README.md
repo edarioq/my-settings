@@ -66,7 +66,8 @@ All after the prefix, except the last row.
 
 ## Copy mode
 
-Enter it with `prefix [` or `prefix Enter`. It uses Vim keys.
+Enter it with `prefix [` or `prefix Enter`. It uses Vim keys. The status bar
+shows `COPY` while a pane is in copy mode.
 
 | Keys                      | Action                                         |
 | ------------------------- | ---------------------------------------------- |
@@ -75,8 +76,8 @@ Enter it with `prefix [` or `prefix Enter`. It uses Vim keys.
 | `0` / `$`                 | Start / end of the line                        |
 | `g` / `G`                 | Top / bottom of the history                    |
 | `/` / `?`                 | Search down / up                               |
-| `Space`                   | Start selecting. Press again to copy and leave |
-| `v` then `y`              | The same, the Vim way                          |
+| `v` or `Space`            | Start selecting                                |
+| `y`                       | Copy the selection and leave                   |
 | `V`                       | Select the whole line                          |
 | `Ctrl+v`                  | Switch to a block selection                    |
 | `q` or `Escape`           | Leave without copying                          |
