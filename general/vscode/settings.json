@@ -103,7 +103,7 @@
 	"window.confirmBeforeClose": "always",
 	"window.title": "${rootName}${separator}${dirty}${activeEditorLong}",
 	"workbench.activityBar.location": "bottom",
-	"workbench.colorTheme": "Catppuccin Mocha",
+	"workbench.colorTheme": "Gruvbox Dark Hard",
 	"workbench.editor.closeEmptyGroups": true,
 	"workbench.editor.pinnedTabSizing": "compact",
 	"workbench.editor.showTabs": "multiple",
