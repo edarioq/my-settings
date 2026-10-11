@@ -78,6 +78,10 @@ TelescopeSelection = { link = "Visual" }
 - `lua/config/keymaps.lua` maps `Ctrl+j` / `Ctrl+k` to jump 10 lines down / up
   in normal mode. This replaces LazyVim's default of moving between windows
   with those keys (`Ctrl+w j` / `Ctrl+w k` still do that)
+- `lua/config/keymaps.lua` also maps `Space r` to replace text in the whole
+  file, like `Cmd+Shift+L` in VS Code. In normal mode it takes the word under
+  the cursor, in visual mode the selection. Type the new text and watch every
+  match change, then `Enter` to apply or `Esc` to cancel
 - The rest of `lua/config/` is unchanged from the LazyVim starter
 
 ## WSL notes
