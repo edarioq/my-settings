@@ -5,7 +5,7 @@ return {
       linters = {
         -- nvim-lint picks golangci-lint's target from Neovim's cwd. In a monorepo
         -- opened at the root there is no go.mod there, so it lints the lone file,
-        -- which fails to load the standard library. Lint the file's package from
+        -- which can't see the rest of its package. Lint the file's package from
         -- inside its own module instead.
         golangcilint = function()
           local linter = vim.deepcopy(require("lint.linters.golangcilint"))
