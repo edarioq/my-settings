@@ -70,6 +70,9 @@ TelescopeSelection = { link = "Visual" }
 - `lua/plugins/biome.lua` checks every supported file with
   [Biome](https://biomejs.dev), but only formats in projects that use Biome.
   It expects `biome` on `PATH` and does not install it through Mason
+- `lua/plugins/go.lua` makes golangci-lint check a Go file's package from the
+  nearest `go.mod`, so linting works in a monorepo opened at its root. Files
+  outside any module keep nvim-lint's default
 - `lua/plugins/neo-tree.lua` shows dotfiles and gitignored files in the tree
 - `lua/plugins/remote-ssh.lua` adds [remote-nvim](https://github.com/amitds1997/remote-nvim.nvim)
   for editing on remote machines over SSH (`:RemoteStart`)
