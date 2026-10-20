@@ -81,10 +81,15 @@ TelescopeSelection = { link = "Visual" }
 - `lua/config/keymaps.lua` maps `Ctrl+j` / `Ctrl+k` to jump 10 lines down / up
   in normal mode. This replaces LazyVim's default of moving between windows
   with those keys (`Ctrl+w j` / `Ctrl+w k` still do that)
+- `lua/config/keymaps.lua` maps `Alt+w` to close the current buffer, the same
+  as `Space b d`. The window stays open and shows the next buffer. On macOS the
+  terminal must send Option as Alt, which the Alacritty, kitty and Ghostty
+  configs here already do
 - `lua/config/keymaps.lua` also maps `Space r` to replace text in the whole
   file, like `Cmd+Shift+L` in VS Code. In normal mode it takes the word under
   the cursor, in visual mode the selection. Type the new text and watch every
-  match change, then `Enter` to apply or `Esc` to cancel
+  match change, then `Enter` to apply or `Esc` to cancel. A number first limits
+  it to that many lines from the cursor down: `4 Space r` covers four lines
 - The rest of `lua/config/` is unchanged from the LazyVim starter
 
 ## WSL notes
