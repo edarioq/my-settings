@@ -7,7 +7,7 @@ Needs tmux 3.2 or newer.
 | File        | What it is                                                           |
 | ----------- | -------------------------------------------------------------------- |
 | `tmux.conf` | The config                                                           |
-| `status.sh` | Uptime and battery for the status bar. Must stay next to `tmux.conf` |
+| `status.sh` | Uptime, battery and the divider line for the status bar. Must stay next to `tmux.conf` |
 
 `install.sh` links this folder to `~/.config/tmux`. It moves an existing
 `~/.tmux.conf` and `~/.tmux.conf.local` to backups, because tmux would load
@@ -37,7 +37,7 @@ Everything not listed here is the tmux default.
 | Clipboard | Copies go to the system clipboard on macOS, Linux and WSL                    |
 | Numbers   | Windows and panes count from 1                                               |
 | Neovim    | Short Escape delay, focus events, 24-bit colour                              |
-| Status bar | The Oh my tmux bar in Gruvbox Dark Hard: session, uptime, windows, battery, time, date, user, host |
+| Status bar | The Oh my tmux bar in Gruvbox Dark Hard: session, uptime, windows, battery, time, date, user, host. Transparent, with a gray divider line above it and a gap between the blocks |
 
 ## Key bindings
 

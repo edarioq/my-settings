@@ -1,6 +1,6 @@
 #!/bin/sh
 # Values for the tmux status bar that tmux cannot work out by itself.
-# Usage: status.sh uptime | status.sh battery
+# Usage: status.sh uptime | status.sh battery | status.sh line WIDTH
 
 uptime_text() {
   if [ -r /proc/uptime ]; then
@@ -43,7 +43,13 @@ battery_text() {
   }'
 }
 
+# tmux can only repeat a character itself from 3.6 on, and Ubuntu ships older
+line_text() {
+  awk -v width="$1" 'BEGIN { for (i = 0; i < width; i++) printf "─" }'
+}
+
 case "$1" in
   uptime) uptime_text ;;
   battery) battery_text ;;
+  line) line_text "$2" ;;
 esac
