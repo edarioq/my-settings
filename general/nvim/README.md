@@ -77,6 +77,9 @@ TelescopeSelection = { link = "Visual" }
   columns and line up its tables, using Prettier. A project's own Prettier
   config wins over this. `.markdownlint.yaml` stops the line length warning on
   table rows and code blocks, which cannot be wrapped
+- `lua/plugins/inlay-hints.lua` turns off inlay hints, the grey type and
+  parameter names the language server adds inside the code. `Space u h` still
+  turns them on for the current buffer
 - `lua/plugins/neo-tree.lua` shows dotfiles and gitignored files in the tree
 - `lua/plugins/remote-ssh.lua` adds [remote-nvim](https://github.com/amitds1997/remote-nvim.nvim)
   for editing on remote machines over SSH (`:RemoteStart`)
