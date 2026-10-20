@@ -79,6 +79,7 @@ link general/starship/starship.toml "$HOME/.config/starship.toml"
 link general/kitty/kitty.conf         "$HOME/.config/kitty/kitty.conf"
 link general/kitty/current-theme.conf "$HOME/.config/kitty/current-theme.conf"
 link general/alacritty/alacritty.toml "$HOME/.config/alacritty/alacritty.toml"
+link general/ghostty/config.ghostty   "$HOME/.config/ghostty/config.ghostty"
 
 link general/claude/CLAUDE.md       "$HOME/.claude/CLAUDE.md"
 
