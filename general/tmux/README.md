@@ -16,10 +16,10 @@ them too.
 ## Try it without touching your setup
 
 This starts a second tmux server that knows nothing about the first one. Run it
-from a terminal window that is not inside tmux:
+from the repo root, in a terminal window that is not inside tmux:
 
 ```bash
-tmux -L try -f ~/Development/my-settings/general/tmux/tmux.conf
+tmux -L try -f "$PWD/general/tmux/tmux.conf"
 ```
 
 To stop it, run `tmux -L try kill-server`.

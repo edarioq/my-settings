@@ -3,13 +3,15 @@
 ## Install on a new machine
 
 ```bash
-git clone git@github.com:edarioq/my-settings.git ~/Development/my-settings
-~/Development/my-settings/install.sh
+git clone git@github.com:edarioq/my-settings.git
+cd my-settings
+./install.sh
 ```
 
 The script links each config into place, so editing a file in either spot
 edits the repo. Anything already there is moved to `<name>.bak.<timestamp>`.
-It is safe to run again.
+It is safe to run again. The links point to wherever the repo is, so after
+moving it, run the script again to repoint them.
 
 On macOS it first installs the tools in `macos/Brewfile` (needs
 [Homebrew](https://brew.sh)). On Ubuntu and other apt systems it installs the
