@@ -1,0 +1,4 @@
+# Table rows and code lines cannot be wrapped, so the line length rule skips them.
+MD013:
+  tables: false
+  code_blocks: false

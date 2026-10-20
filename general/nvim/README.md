@@ -73,6 +73,10 @@ TelescopeSelection = { link = "Visual" }
 - `lua/plugins/go.lua` makes golangci-lint check a Go file's package from the
   nearest `go.mod`, so linting works in a monorepo opened at its root. Files
   outside any module keep nvim-lint's default
+- `lua/plugins/markdown.lua` makes saving a Markdown file wrap its prose at 80
+  columns and line up its tables, using Prettier. A project's own Prettier
+  config wins over this. `.markdownlint.yaml` stops the line length warning on
+  table rows and code blocks, which cannot be wrapped
 - `lua/plugins/neo-tree.lua` shows dotfiles and gitignored files in the tree
 - `lua/plugins/remote-ssh.lua` adds [remote-nvim](https://github.com/amitds1997/remote-nvim.nvim)
   for editing on remote machines over SSH (`:RemoteStart`)
