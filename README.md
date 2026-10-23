@@ -48,7 +48,7 @@ windows/   Windows only
 | `vim/`      | `~/.vimrc`                               | Plain Vim with the Dracula theme                  |
 | `git/`      | `~/.config/git/ignore`, included from `~/.gitconfig` | Name, email, global ignore            |
 | `kitty/`    | `~/.config/kitty/`                       | Opacity, blur, CaskaydiaCove Nerd Font, Gruvbox Dark Hard |
-| `alacritty/` | `~/.config/alacritty/alacritty.toml`, `%APPDATA%\alacritty\` | The kitty settings, for Alacritty |
+| `alacritty/` | `~/.config/alacritty/alacritty.toml`, `%APPDATA%\alacritty\` | The kitty settings, for Alacritty, with Ghostty's font: JetBrains Mono Nerd Font at 13 |
 | `ghostty/`  | `~/.config/ghostty/config.ghostty`       | Opacity, blur, Option as Alt, Gruvbox Dark Hard. Ghostty's own font |
 | `claude/`   | `~/.claude/`                             | [Global CLAUDE.md, settings, project standards](general/claude/README.md) |
 | `vscode/`   | VS Code user folder                      | Shared `settings.json`, [details and Windows steps](general/vscode/README.md) |
