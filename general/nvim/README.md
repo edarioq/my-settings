@@ -97,6 +97,12 @@ TelescopeSelection = { link = "Visual" }
   the cursor, in visual mode the selection. Type the new text and watch every
   match change, then `Enter` to apply or `Esc` to cancel. A number first limits
   it to that many lines from the cursor down: `4 Space r` covers four lines
+- `lua/config/autocmds.lua` reloads files changed outside Neovim, by git or
+  another tool, when you switch buffers or pause. LazyVim alone only checks
+  when the terminal regains focus. Buffers with unsaved changes still ask first
+- `lua/config/autocmds.lua` also clears errors left behind by a restarted
+  language server. Neovim only clears them from buffers the old server was
+  attached to, so other files could keep stale "undefined" errors
 - The rest of `lua/config/` is unchanged from the LazyVim starter
 
 ## WSL notes
