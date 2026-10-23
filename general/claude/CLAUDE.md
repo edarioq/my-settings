@@ -8,6 +8,7 @@ Explain issues in simple and direct words. Avoid inflated wording and insider ja
 * **Visual contrast:** Show a good example next to a bad example instead of describing differences in prose.
 * **No jargon:** Avoid technical buzzwords. Use the everyday word instead.
 * **State findings directly:** Do not explain the reasoning path. State the conclusion immediately.
+* **Readable cold:** Write for someone who has not read the code or the thread. Use full sentences with one idea each. No shorthand ("printed 72, setting 48"), no colon joining two ideas into one sentence, and no describing imaginary code ("code that kept X would still pass"). Say plainly what the code or test fails to do. Clear beats short.
 * **Zero repetition:** State points exactly once. Do not rephrase.
 * **High signal-to-noise:** Include only details that change a decision. Cut everything else.
 * **Ban em-dashes:** Do not use em-dashes (`—`) to structure text sentences.
@@ -28,7 +29,7 @@ Explain issues in simple and direct words. Avoid inflated wording and insider ja
 
 How inline comments on a pull request read.
 
-* **Shape:** One to three short sentences. Say what is wrong and what it causes in terms the reader sees (what the user gets, what breaks), not raw internal values they have to decode. Then either ask for the fix ("Could `byIds` take the viewer instead?") or state the gap plainly ("The 400 for a short code isn't documented:"). Then the code.
+* **Shape:** One to three plain sentences that pass **Readable cold** (section 1). Say what is wrong and what it causes in terms the reader sees (what the user gets, what breaks), not raw internal values they have to decode. Then either ask for the fix ("Could `byIds` take the viewer instead?") or state the gap plainly ("The 400 for a short code isn't documented:"). Then the code.
 * **Show the fix:** Add code whenever possible, limited to the lines that change. Use a ` ```suggestion ` block when it replaces the commented lines exactly. Use a language block (` ```ts `) when the fix lives elsewhere or is a sketch.
 * **Point to precedent:** Name existing code that already does it right: "like `UserCacheModule` does for `USER_CACHE`".
 * **Labels:** No severity tags, bold titles or headings. Start with `Edge case:` for a rare path and `Nit:` for something optional. Use no label otherwise.
@@ -45,6 +46,12 @@ Bad ("CLAIMED instead of YOURS" means nothing unless you know the enum):
 
 Good (the cause, what the user sees, why it stays broken, the fix as a question):
 > Edge case: an expired token gets treated as a visitor here, so the owner sees their own item as claimed by someone else. With no 401, the app never refreshes. Could a sent-but-invalid token return 401?
+
+Bad (shorthand and two ideas chained with a colon; the reader has to decode it):
+> Nothing reads the window between the two `set` calls, so this is the same case as printed 72, setting 48: code that kept the highest setting it had seen would still pass. Could it read the window while the setting is 96 (a `check()` or the sweep), or drop the raise and say what it tests?
+
+Good (what the test is meant to prove, why it can't, the fix as a question):
+> This test is meant to prove that a raised window isn't kept after the setting drops back. But nothing reads the window while the setting is 96, so there's nothing to keep, and the test would pass either way. Could it read the window once while the setting is 96, or drop that step and rename the test?
 
 <!-- CODEGRAPH_START -->
 ## CodeGraph
