@@ -120,5 +120,8 @@
 		"**/.gitea/workflows/*.yaml",
 		"**/.forgejo/workflows/*.yml",
 		"**/.forgejo/workflows/*.yaml"
+	],
+	"security.allowedUNCHosts": [
+		"wsl.localhost"
 	]
 }
