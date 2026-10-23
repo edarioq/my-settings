@@ -82,6 +82,11 @@ link general/alacritty/alacritty.toml "$HOME/.config/alacritty/alacritty.toml"
 link general/ghostty/config.ghostty   "$HOME/.config/ghostty/config.ghostty"
 
 link general/claude/CLAUDE.md       "$HOME/.claude/CLAUDE.md"
+# One link per skill, because Claude Code keeps its own synced skills in that folder
+for skill in "$REPO"/general/claude/skills/*/; do
+  name="$(basename "$skill")"
+  link "general/claude/skills/$name" "$HOME/.claude/skills/$name"
+done
 
 # settings.json stays a real file because Claude Code rewrites it at runtime
 if [ ! -e "$HOME/.claude/settings.json" ]; then

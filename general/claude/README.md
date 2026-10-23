@@ -5,10 +5,11 @@ Global context and preferences for [Claude Code](https://docs.anthropic.com/en/d
 | File            | Goes to                    | What it is                                                        |
 | --------------- | -------------------------- | ----------------------------------------------------------------- |
 | `CLAUDE.md`     | `~/.claude/CLAUDE.md`      | Writing style and code commenting rules, loaded in every project |
+| `skills/`       | `~/.claude/skills/<name>/` | `/prr` reviews a PR in chat, `/pprr` posts chosen findings to it  |
 | `standards/`    | nowhere                    | Project standards to copy into a project's `CLAUDE.md`           |
 | `settings.json` | `~/.claude/settings.json`  | Model, effort level, theme, fullscreen TUI, no co-author trailer  |
 
-`CLAUDE.md` is symlinked by `install.sh`. `settings.json` is
+`CLAUDE.md` and each skill folder are symlinked by `install.sh`. `settings.json` is
 copied once and only if none exists, because Claude Code writes into it while
 running and a symlink would push every machine-specific change back into the
 repo. To pick up a newer version, copy it over by hand or diff the two.
