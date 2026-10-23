@@ -52,8 +52,8 @@ elif command -v apt-get >/dev/null; then
   sudo apt-get update
   xargs sudo apt-get install -y < "$REPO/ubuntu/packages.txt"
   command -v starship >/dev/null || curl -sS https://starship.rs/install.sh | sh -s -- -y
-  if ! fc-list | grep -qi "CaskaydiaCove"; then
-    echo "note: install the CaskaydiaCove Nerd Font from https://www.nerdfonts.com/font-downloads"
+  if ! fc-list | grep -qi "JetBrainsMono Nerd Font"; then
+    echo "note: install the JetBrainsMono Nerd Font from https://www.nerdfonts.com/font-downloads"
   fi
   nvim_version="$(nvim --version | head -1 | grep -o '[0-9]*\.[0-9]*' | head -1)"
   if [ "$(printf '%s\n' "$nvim_version" 0.9 | sort -V | head -1)" != "0.9" ]; then

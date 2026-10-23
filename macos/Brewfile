@@ -16,5 +16,4 @@ brew "zsh-syntax-highlighting"
 brew "felixkratz/formulae/borders"
 
 cask "kitty"
-cask "font-caskaydia-cove-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
