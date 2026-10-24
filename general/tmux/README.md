@@ -37,7 +37,7 @@ Everything not listed here is the tmux default.
 | Clipboard | Copies go to the system clipboard on macOS, Linux and WSL                    |
 | Numbers   | Windows and panes count from 1                                               |
 | Neovim    | Short Escape delay, focus events, 24-bit colour                              |
-| Status bar | The Oh my tmux bar in Gruvbox Dark Hard: session, uptime, windows, battery, time, date, user, host. Transparent, with a gray divider line above it and a gap between the blocks |
+| Status bar | The Oh my tmux bar in Gruvbox Dark Hard: session, uptime, windows, battery, time, date, user, host. Transparent, with a gray divider line above and below it, and rounded blocks with a gap between them |
 
 ## Key bindings
 
