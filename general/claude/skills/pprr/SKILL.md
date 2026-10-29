@@ -16,7 +16,7 @@ Items are numbers from the latest `/prr` list in this conversation, each with op
 1. Find the latest `/prr` list in this conversation and its PR. If there is none, ask for the PR link and stop.
 2. Parse the selection. If a number does not exist or a note is unclear, ask before posting anything.
 3. Get the current head SHA (`gh pr view <n> --json headRefOid`). If it moved since `/prr`, re-check each chosen finding against the new code and say which changed.
-4. Write each comment in the **Code Review Comments** style of `~/.claude/CLAUDE.md`: short and friendly, but clear beats short. Before posting, reread each comment as someone who has not opened the code, and rewrite any sentence they would have to decode. Read the exact lines at the head SHA before writing code:
+4. Write each comment in the **Code Review Comments** style of `~/.claude/CLAUDE.md`: as short as possible, in the simplest words. Before posting, reread each comment as someone who has not opened the code, and rewrite any sentence they would have to decode. Read the exact lines at the head SHA before writing code:
    - A `suggestion` block must replace the anchored lines exactly, with the file's indentation. An empty `suggestion` block deletes them.
    - Otherwise use a language block with only the lines that change.
 5. Anchor every comment on RIGHT-side lines inside a diff hunk. Read the hunk ranges from `gh pr diff <n>`. A multi-line comment needs `start_line`, `line`, `start_side` and `side`. When the problem is outside the diff, anchor on the nearest related changed line and name the real `file:line` in the text.

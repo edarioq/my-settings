@@ -24,7 +24,7 @@ Arguments: `$ARGUMENTS`. The first is the PR link or number; an optional second 
    - the code shows it is wrong or would not matter (for example, an event left out on purpose).
 5. Reply in chat, following `~/.claude/CLAUDE.md`:
    - One sentence: whether the PR is ready and why.
-   - The findings, numbered 1 to N across three groups: **Must fix**, **Should fix**, **Minor**. Each gets a bold short title, `file:line`, and one to three plain sentences: what goes wrong, a concrete case, the fix. Use a small good/bad code pair where it helps.
+   - The findings, numbered 1 to N across three groups: **Must fix**, **Should fix**, **Minor**. Each gets a bold short title, `file:line`, and one or two short sentences: what goes wrong, then the fix. Use a small good/bad code pair where it helps.
    - **Left out**: one line per dropped finding with the reason.
    - What was not run (tests, `arch:check`, and so on).
    - Last line: `Post with /pprr <numbers>.`

@@ -29,7 +29,7 @@ Explain issues in simple and direct words. Avoid inflated wording and insider ja
 
 How inline comments on a pull request read.
 
-* **Shape:** One to three plain sentences that pass **Readable cold** (section 1). Say what is wrong and what it causes in terms the reader sees (what the user gets, what breaks), not raw internal values they have to decode. Then either ask for the fix ("Could `byIds` take the viewer instead?") or state the gap plainly ("The 400 for a short code isn't documented:"). Then the code.
+* **Shape:** One or two short sentences in the simplest words that pass **Readable cold** (section 1). Say what is wrong and what it causes in terms the reader sees (what the user gets, what breaks), not raw internal values they have to decode. Then either ask for the fix ("Could `byIds` take the viewer instead?") or state the gap plainly ("The 400 for a short code isn't documented:"). Cut anything the author doesn't need to act. Then the code.
 * **Show the fix:** Add code whenever possible, limited to the lines that change. Use a ` ```suggestion ` block when it replaces the commented lines exactly. Use a language block (` ```ts `) when the fix lives elsewhere or is a sketch.
 * **Point to precedent:** Name existing code that already does it right: "like `UserCacheModule` does for `USER_CACHE`".
 * **Labels:** No severity tags, bold titles or headings. Start with `Edge case:` for a rare path and `Nit:` for something optional. Use no label otherwise.
