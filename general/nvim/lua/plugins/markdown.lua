@@ -23,6 +23,19 @@ return {
     },
   },
   {
+    -- Normal mode renders every line, including the cursor line.
+    -- Insert mode still turns rendering off and shows the raw Markdown.
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      anti_conceal = { enabled = false },
+      win_options = {
+        -- Neovim itself hides link brackets and URLs, so it must also be told
+        -- to keep them hidden on the cursor line.
+        concealcursor = { rendered = "nc" },
+      },
+    },
+  },
+  {
     "mfussenegger/nvim-lint",
     opts = {
       linters = {
