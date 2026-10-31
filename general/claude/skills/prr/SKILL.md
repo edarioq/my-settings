@@ -3,6 +3,7 @@ name: prr
 description: Review a GitHub pull request from its link and list numbered findings in chat, posting nothing. Run only when the user types /prr <PR link>.
 argument-hint: <PR link> [low|medium|high|xhigh|max]
 disable-model-invocation: true
+context: fork
 ---
 
 # /prr: review a pull request
@@ -27,6 +28,8 @@ Arguments: `$ARGUMENTS`. The first is the PR link or number; an optional second 
    - The findings, numbered 1 to N across three groups: **Must fix**, **Should fix**, **Minor**. Each gets a bold short title, `file:line`, and one or two short sentences: what goes wrong, then the fix. Use a small good/bad code pair where it helps.
    - **Left out**: one line per dropped finding with the reason.
    - What was not run (tests, `arch:check`, and so on).
-   - Last line: `Post with /pprr <numbers>.`
+   - Last line: `Post with /pprr <numbers> or fix with /fprr <numbers>.`
 
-Post nothing to GitHub. The numbers are what `/pprr` refers to, so do not renumber later in the conversation.
+   Your final message is the reply itself, complete and unchanged. The main session relays it as-is, so do not summarize or renumber it.
+
+Post nothing to GitHub. The numbers are what `/pprr` and `/fprr` refer to, so do not renumber later in the conversation.
