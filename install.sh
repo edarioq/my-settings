@@ -87,6 +87,8 @@ for skill in "$REPO"/general/claude/skills/*/; do
   name="$(basename "$skill")"
   link "general/claude/skills/$name" "$HOME/.claude/skills/$name"
 done
+# TEMPORARY: remove together with the script, see its header
+link general/claude/hooks/tmux-progress-bar-temp-workaround.sh "$HOME/.claude/hooks/tmux-progress-bar-temp-workaround.sh"
 
 # settings.json stays a real file because Claude Code rewrites it at runtime
 if [ ! -e "$HOME/.claude/settings.json" ]; then

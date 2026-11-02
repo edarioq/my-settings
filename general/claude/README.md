@@ -7,9 +7,10 @@ Global context and preferences for [Claude Code](https://docs.anthropic.com/en/d
 | `CLAUDE.md`     | `~/.claude/CLAUDE.md`      | Writing style and code commenting rules, loaded in every project                           |
 | `skills/`       | `~/.claude/skills/<name>/` | `/prr` reviews a PR in chat, `/pprr` posts chosen findings to it, `/fprr` fixes chosen ones |
 | `standards/`    | nowhere                    | Project standards to copy into a project's `CLAUDE.md`                                     |
-| `settings.json` | `~/.claude/settings.json`  | Model, effort level, theme, fullscreen TUI, no co-author trailer                            |
+| `settings.json` | `~/.claude/settings.json`  | Model, effort level, theme, fullscreen TUI, no co-author trailer, hooks for `hooks/`        |
+| `hooks/`        | `~/.claude/hooks/<name>`   | **Temporary workaround:** shows Claude Code's progress bar inside tmux. See below          |
 
-`CLAUDE.md` and each skill folder are symlinked by `install.sh`. `settings.json` is
+`CLAUDE.md`, each skill folder and each hook are symlinked by `install.sh`. `settings.json` is
 copied once and only if none exists, because Claude Code writes into it while
 running and a symlink would push every machine-specific change back into the
 repo. To pick up a newer version, copy it over by hand or diff the two.
@@ -22,6 +23,13 @@ and anything said about it afterwards.
 Expo + React Native app. They are not loaded anywhere. When starting a project
 of that kind, copy the relevant one into the project's `CLAUDE.md` or reference
 it from there with `@path/to/file`.
+
+`hooks/tmux-progress-bar-temp-workaround.sh` is a **temporary workaround**.
+Inside tmux, Claude Code doesn't show the terminal's progress bar while it
+works, so the `UserPromptSubmit`, `Stop`, `StopFailure` and `SessionEnd`
+hooks send it instead. Once Claude Code shows the bar inside tmux by itself,
+delete the script, its line in `install.sh` and those hooks in both
+`settings.json` files. The script's header says how to check.
 
 Project-level context (`.claude/settings.local.json`, project `CLAUDE.md`
 files) belongs in each project, not here. The `auto mode` environment block is

@@ -5,6 +5,51 @@
     "sessionUrl": false
   },
   "includeCoAuthoredBy": false,
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$HOME/.claude/hooks/tmux-progress-bar-temp-workaround.sh\" start",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$HOME/.claude/hooks/tmux-progress-bar-temp-workaround.sh\" stop",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$HOME/.claude/hooks/tmux-progress-bar-temp-workaround.sh\" stop",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$HOME/.claude/hooks/tmux-progress-bar-temp-workaround.sh\" stop"
+          }
+        ]
+      }
+    ]
+  },
   "model": "claude-fable-5-1[1m]",
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
