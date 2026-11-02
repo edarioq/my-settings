@@ -56,6 +56,9 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# Go tools installed with `go install`, like gopls
+[ -d "$HOME/go/bin" ] && export PATH="$HOME/go/bin:$PATH"
+
 # Secrets and per-machine settings stay out of the repo
 [ -s "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
